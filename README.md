@@ -11,7 +11,7 @@ This package provides a production-ready implementation of temporal convolutiona
 ### Key Features
 
 - **Data Sources**:
-  - **DefeatBeta API** (default)
+  - **[DefeatBeta API](https://github.com/defeat-beta/defeatbeta-api)** (default)
   - **Yahoo Finance** (optional)
   - Automatic CSV caching for fast repeated access
 
