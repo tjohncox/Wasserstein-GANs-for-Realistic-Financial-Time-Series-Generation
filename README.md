@@ -77,7 +77,6 @@ Core dependencies are automatically installed:
 ```python
 from quantgan import ModelConfig, TrainConfig, DataConfig, PreprocessConfig, DatasetConfig
 from quantgan.data import get_data_source, LambertWPreprocessor, DatasetBuilder, log_returns_from_close
-from quantgan.data.preprocessing import log_returns_from_close
 from quantgan.training import WGANGPTrainer
 from quantgan.utils import set_all_seeds
 
@@ -182,7 +181,7 @@ The primary data source is the [DefeatBeta API](https://github.com/humandotlearn
 
 ```python
 from quantgan import DataConfig
-from quantgan.data import get_data_source
+from quantgan.data import get_data_source, log_returns_from_close
 
 # DefeatBeta is used automatically (default source)
 data_cfg = DataConfig(
@@ -192,7 +191,7 @@ data_cfg = DataConfig(
 )
 src = get_data_source(data_cfg)
 df = src.fetch()  # Downloads once, then uses cached CSV
-logret = src.log_returns_from_close(df)
+logret = log_returns_from_close(df)
 ```
 
 ### Yahoo Finance (Alternative)
@@ -203,7 +202,7 @@ To use Yahoo Finance, set `source="yfinance"` in your config:
 
 ```python
 from quantgan import DataConfig
-from quantgan.data import get_data_source
+from quantgan.data import get_data_source, log_returns_from_close
 
 # Explicitly use Yahoo Finance
 data_cfg = DataConfig(
@@ -214,7 +213,7 @@ data_cfg = DataConfig(
 )
 src = get_data_source(data_cfg)
 df = src.fetch()
-logret = src.log_returns_from_close(df)
+logret = log_returns_from_close(df)
 ```
 
 **Note:** The `get_data_source()` factory function automatically selects the appropriate data source based on your config, making it easy to switch between sources without changing your code.
