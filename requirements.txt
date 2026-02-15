@@ -1,7 +1,0 @@
-# requirements.txt
-numpy
-pandas
-yfinance
-tensorflow
-matplotlib
-scipy
