@@ -102,7 +102,7 @@ train_ds, _, steps_per_epoch = ds_builder.build(r_train)
 
 # Train (see notebooks/01_training.ipynb for complete example)
 trainer = WGANGPTrainer(...)
-result = trainer.fit(...)
+result = trainer.train(...)
 ```
 
 **Note:** For a complete training example with all parameters, see `notebooks/01_training.ipynb`.
