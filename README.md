@@ -16,7 +16,7 @@ This package provides a production-ready implementation of temporal convolutiona
 
 - **Two Generator Architectures**:
   - **Pure TCN**: Direct noise-to-returns mapping via temporal convolutions
-  - **Stochastic Volatility Neural Network**: Models returns as r_t = σ_t × ε_t + μ_t, where σ_t (volatility) and μ_t (drift) are predicted by a TCN based on past latent variables.
+  - **Stochastic Volatility Neural Network**: Models returns as r_t = σ_t × ε_t + μ_t, where σ_t (volatility) and μ_t (drift) are predicted by a TCN based on past latent variables; ε_t is i.i.d. noise (innovation/shock term).
 
 - **Heavy-Tailed Distribution Handling**: Lambert-W transformation for fat-tailed financial returns
 
