@@ -30,7 +30,7 @@ This package provides a production-ready implementation of temporal convolutiona
 
 ### Prerequisites
 
-- Python 3.8 - 3.10
+- Python 3.10
 - CUDA-compatible GPU (optional, but recommended for training)
 
 ### Setup
@@ -40,9 +40,14 @@ This package provides a production-ready implementation of temporal convolutiona
 git clone https://gitlab.ub.uni-giessen.de/J_Y5D5E8V/wasserstein-gans-for-realistic-financial-time-series-generation.git
 cd quantgan
 
-# Create and activate conda environment
-conda create -n quantgan python=3.10 -y
-conda activate quantgan
+# Create and activate virtual environment (venv)
+python3.10 -m venv .venv
+
+# Linux/macOS
+source .venv/bin/activate
+
+# Windows (PowerShell)
+# .\.venv\Scripts\Activate.ps1
 
 # Update pip and install package
 python -m pip install -U pip
@@ -50,7 +55,7 @@ pip install -e .
 
 # Install Jupyter (for notebooks)
 pip install -U ipykernel jupyterlab
-python -m ipykernel install --user --name quantgan --display-name "quantgan (conda)"
+python -m ipykernel install --user --name quantgan --display-name "quantgan (venv)"
 ```
 
 ### Dependencies
