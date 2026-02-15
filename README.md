@@ -273,10 +273,6 @@ This implementation is based on the following papers:
 
 If you use this code in your research, please cite the relevant papers.
 
-## Acknowledgments
-
-This implementation is inspired by and builds upon the original QuantGAN paper by Wiese et al. (2020). The WGAN-GP training procedure follows Gulrajani et al. (2017), extending the Wasserstein GAN framework by Arjovsky et al. (2017).
-
 
 ## License
 
