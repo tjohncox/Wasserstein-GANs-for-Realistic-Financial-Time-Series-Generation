@@ -6,7 +6,7 @@ A modular Python package for generating realistic financial time series using Ge
 
 This package provides a production-ready implementation of temporal convolutional network (TCN) based generators for financial time series, with specialized preprocessing for heavy-tailed distributions and comprehensive evaluation metrics from the original paper.
 
-**Data Sources:** Uses [DefeatBeta API](https://github.com/humandotlearning/defeatbeta-api) as the primary data source (open-source, reliable, no rate limiting). Yahoo Finance is supported as an optional alternative.
+**Data Sources:** Uses [DefeatBeta API](https://github.com/defeat-beta/defeatbeta-api) as the primary data source (open-source, reliable, no rate limiting). Yahoo Finance is supported as an optional alternative.
 
 ### Key Features
 
