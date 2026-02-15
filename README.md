@@ -140,7 +140,7 @@ See `notebooks/` for detailed examples.
 
 ```
 quantgan/
-├── quantgan/              # Main package
+├── quantgan/             # Main package
 │   ├── config/           # Configuration classes
 │   ├── data/             # Data loading & preprocessing
 │   ├── models/           # Generator & Discriminator architectures
@@ -151,14 +151,15 @@ quantgan/
 │   ├── 00_test_components.ipynb
 │   ├── 01_training.ipynb
 │   └── 02_evaluation.ipynb
-└── setup.py
+├── data/                 # DefeatBeta/YFinance data cache
+└── pyproject.toml
 ```
 
 ## Notebooks
 
 The `notebooks/` directory contains step-by-step examples:
 
-- **00_test_components.ipynb**: Test all components (~3-5 minutes)
+- **00_test_components.ipynb**: Test core components 
 - **01_training.ipynb**: Complete training pipeline
 - **02_evaluation.ipynb**: Model evaluation and visualization
 
