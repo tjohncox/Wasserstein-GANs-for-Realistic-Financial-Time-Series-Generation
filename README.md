@@ -11,8 +11,8 @@ This package provides a production-ready implementation of temporal convolutiona
 ### Key Features
 
 - **Data Sources**:
-  - **DefeatBeta API** (default): Open-source, no rate limits, consistent quality (reliable)
-  - **Yahoo Finance** (optional): Alternative source with caching (less reliable)
+  - **DefeatBeta API** (default)
+  - **Yahoo Finance** (optional)
   - Automatic CSV caching for fast repeated access
 
 - **Two Generator Architectures**:
