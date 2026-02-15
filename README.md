@@ -216,8 +216,6 @@ df = src.fetch()
 logret = log_returns_from_close(df)
 ```
 
-**Note:** The `get_data_source()` factory function automatically selects the appropriate data source based on your config, making it easy to switch between sources without changing your code.
-
 ## Generator Types
 
 ### Pure TCN
