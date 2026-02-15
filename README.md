@@ -76,7 +76,8 @@ Core dependencies are automatically installed:
 
 ```python
 from quantgan import ModelConfig, TrainConfig, DataConfig, PreprocessConfig, DatasetConfig
-from quantgan.data import get_data_source, LambertWPreprocessor, DatasetBuilder
+from quantgan.data import get_data_source, LambertWPreprocessor, DatasetBuilder, log_returns_from_close
+from quantgan.data.preprocessing import log_returns_from_close
 from quantgan.training import WGANGPTrainer
 from quantgan.utils import set_all_seeds
 
@@ -94,7 +95,7 @@ train_cfg = TrainConfig(epochs=200)
 # Load data - uses DefeatBeta API by default (open source, no rate limiting)
 src = get_data_source(data_cfg)
 df = src.fetch()
-logret = src.log_returns_from_close(df)
+logret = log_returns_from_close(df)
 
 # Preprocess with Lambert-W transformation
 pre = LambertWPreprocessor(PreprocessConfig()).fit(logret)
