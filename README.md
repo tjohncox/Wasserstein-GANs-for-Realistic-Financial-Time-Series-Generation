@@ -109,7 +109,7 @@ trainer = WGANGPTrainer(...)
 result = trainer.train(...)
 ```
 
-**Note:** For a complete training example with all parameters, see `notebooks/01_training.ipynb`.
+**Note:** For a complete training example, see `notebooks/01_training.ipynb`.
 
 **Alternative data source (Yahoo Finance):**
 ```python
