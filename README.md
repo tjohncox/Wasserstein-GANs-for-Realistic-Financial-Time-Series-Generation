@@ -69,6 +69,7 @@ Core dependencies are automatically installed:
 - defeatbeta-api >= 0.0.41
 - yfinance >= 0.2.0
 - arch >= 5.0.0
+- tabulate >= 0.9.0
 
 ## Quick Start
 
