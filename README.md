@@ -113,14 +113,6 @@ result = trainer.train(...)
 
 **Note:** For a complete training example, see `notebooks/01_training_pure_tcn.ipynb`.
 
-**Alternative data source (Yahoo Finance):**
-```python
-# To use Yahoo Finance instead (may have rate limiting/IP blocking issues)
-from quantgan.data import YFinanceSource
-data_cfg = DataConfig(ticker="SPY", source="yfinance", start="2009-05-01", end="2018-12-31")
-src = YFinanceSource(data_cfg)
-```
-
 ### Generate Synthetic Data
 
 ```python
