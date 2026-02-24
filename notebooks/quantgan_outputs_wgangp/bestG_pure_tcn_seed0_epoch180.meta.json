@@ -1,0 +1,19 @@
+{
+  "causal": true,
+  "created_utc": "2026-02-22T15:19:22Z",
+  "dilations": [
+    1,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "g_ch": 80,
+  "g_ch_hidden": 80,
+  "generator_type": "pure_tcn",
+  "kernel": 2,
+  "use_skip_connections": true,
+  "z_dim": 3
+}

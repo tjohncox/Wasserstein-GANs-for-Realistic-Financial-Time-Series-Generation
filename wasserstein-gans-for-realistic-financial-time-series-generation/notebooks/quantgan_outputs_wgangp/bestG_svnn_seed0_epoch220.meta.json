@@ -1,0 +1,19 @@
+{
+  "causal": true,
+  "created_utc": "2026-02-22T16:55:26Z",
+  "dilations": [
+    1,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "g_ch": 60,
+  "g_ch_hidden": 60,
+  "generator_type": "svnn",
+  "kernel": 2,
+  "use_skip_connections": true,
+  "z_dim": 3
+}
