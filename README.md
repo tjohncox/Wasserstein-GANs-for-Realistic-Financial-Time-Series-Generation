@@ -37,11 +37,11 @@ This package provides a production-ready implementation of temporal convolutiona
 
 ```bash
 # Clone the repository
-git clone https://gitlab.ub.uni-giessen.de/J_Y5D5E8V/wasserstein-gans-for-realistic-financial-time-series-generation.git
+git clone https://gitlab.ub.uni-giessen.de/J_Y5D5E8V/wasserstein-gans-for-realistic-financial-time-series-generation.git quantgan
 cd quantgan
 
 # Create and activate virtual environment (venv)
-python3.10 -m venv .venv
+python3 -m venv .venv
 
 # Linux/macOS
 source .venv/bin/activate
