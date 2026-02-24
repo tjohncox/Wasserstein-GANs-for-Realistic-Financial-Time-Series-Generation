@@ -30,7 +30,7 @@ This package provides a production-ready implementation of temporal convolutiona
 
 ### Prerequisites
 
-- Python 3.10
+- Python >= 3.8
 - CUDA-compatible GPU (optional, but recommended for training)
 
 ### Setup
@@ -66,8 +66,9 @@ Core dependencies are automatically installed:
 - SciPy >= 1.7.0
 - Matplotlib >= 3.4.0
 - Pandas >= 1.3.0
-- defeatbeta-api 
-- yfinance >= 0.2.0 
+- defeatbeta-api >= 0.0.41
+- yfinance >= 0.2.0
+- arch >= 5.0.0
 
 ## Quick Start
 
@@ -76,7 +77,7 @@ Core dependencies are automatically installed:
 
 ```python
 from quantgan import ModelConfig, TrainConfig, DataConfig, PreprocessConfig, DatasetConfig
-from quantgan.data import get_data_source, LambertWPreprocessor, DatasetBuilder, log_returns_from_close
+from quantgan.data import DefeatBetaSource, LambertWPreprocessor, DatasetBuilder
 from quantgan.training import WGANGPTrainer
 from quantgan.utils import set_all_seeds
 
@@ -92,9 +93,9 @@ model_cfg = ModelConfig(generator_type="pure_tcn")
 train_cfg = TrainConfig(epochs=200)
 
 # Load data - uses DefeatBeta API by default (open source, no rate limiting)
-src = get_data_source(data_cfg)
+src = DefeatBetaSource(data_cfg)
 df = src.fetch()
-logret = log_returns_from_close(df)
+logret = src.log_returns_from_close(df)
 
 # Preprocess with Lambert-W transformation
 pre = LambertWPreprocessor(PreprocessConfig()).fit(logret)
@@ -104,18 +105,19 @@ r_train = pre.transform(logret)
 ds_builder = DatasetBuilder(DatasetConfig())
 train_ds, _, steps_per_epoch = ds_builder.build(r_train)
 
-# Train (see notebooks/01_training.ipynb for complete example)
+# Train (see notebooks/01_training_pure_tcn.ipynb for complete example)
 trainer = WGANGPTrainer(...)
 result = trainer.train(...)
 ```
 
-**Note:** For a complete training example, see `notebooks/01_training.ipynb`.
+**Note:** For a complete training example, see `notebooks/01_training_pure_tcn.ipynb`.
 
 **Alternative data source (Yahoo Finance):**
 ```python
 # To use Yahoo Finance instead (may have rate limiting/IP blocking issues)
+from quantgan.data import YFinanceSource
 data_cfg = DataConfig(ticker="SPY", source="yfinance", start="2009-05-01", end="2018-12-31")
-src = get_data_source(data_cfg)
+src = YFinanceSource(data_cfg)
 ```
 
 ### Generate Synthetic Data
@@ -127,7 +129,7 @@ from quantgan.utils import build_and_load_generator, generate_M_paths_raw
 netG = build_and_load_generator(
     model_cfg=model_cfg,
     window_len=127,
-    weights_path="path/to/weights.h5",
+    weights_path="path/to/weights.weights.pkl",
     seed=0
 )
 
@@ -153,8 +155,9 @@ quantgan/
 │   └── utils/            # Helper functions
 ├── notebooks/            # Example notebooks
 │   ├── 00_test_components.ipynb
-│   ├── 01_training.ipynb
-│   └── 02_evaluation.ipynb
+│   ├── 01_training_pure_tcn.ipynb
+│   ├── 01_training_svnn.ipynb
+│   └── 02_test.ipynb
 ├── data/                 # DefeatBeta/YFinance data cache
 └── pyproject.toml
 ```
@@ -164,8 +167,9 @@ quantgan/
 The `notebooks/` directory contains step-by-step examples:
 
 - **00_test_components.ipynb**: Test core components 
-- **01_training.ipynb**: Complete training pipeline
-- **02_evaluation.ipynb**: Model evaluation and visualization
+- **01_training_pure_tcn.ipynb**: Complete training pipeline for the Pure TCN generator
+- **01_training_svnn.ipynb**: Complete training pipeline for the SVNN generator
+- **02_test.ipynb**: Model evaluation, visualization, and GARCH(1,1) baseline comparison
 
 ## Data Sources
 
@@ -181,7 +185,7 @@ The primary data source is the [DefeatBeta API](https://github.com/humandotlearn
 
 ```python
 from quantgan import DataConfig
-from quantgan.data import get_data_source, log_returns_from_close
+from quantgan.data import DefeatBetaSource
 
 # DefeatBeta is used automatically (default source)
 data_cfg = DataConfig(
@@ -189,9 +193,9 @@ data_cfg = DataConfig(
     start="2009-05-01",
     end="2018-12-31",
 )
-src = get_data_source(data_cfg)
+src = DefeatBetaSource(data_cfg)
 df = src.fetch()  # Downloads once, then uses cached CSV
-logret = log_returns_from_close(df)
+logret = src.log_returns_from_close(df)
 ```
 
 ### Yahoo Finance (Alternative)
@@ -202,7 +206,7 @@ To use Yahoo Finance, set `source="yfinance"` in your config:
 
 ```python
 from quantgan import DataConfig
-from quantgan.data import get_data_source, log_returns_from_close
+from quantgan.data import YFinanceSource
 
 # Explicitly use Yahoo Finance
 data_cfg = DataConfig(
@@ -211,9 +215,9 @@ data_cfg = DataConfig(
     end="2018-12-31",
     source="yfinance",  # Override default
 )
-src = get_data_source(data_cfg)
+src = YFinanceSource(data_cfg)
 df = src.fetch()
-logret = log_returns_from_close(df)
+logret = src.log_returns_from_close(df)
 ```
 
 ## Generator Types
@@ -279,5 +283,4 @@ If you use this code in your research, please cite the relevant papers.
 ## License
 
 MIT License - see LICENSE file for details.
-
 
