@@ -113,7 +113,6 @@ class LambertWState:
     delta_hat: float = 0.0
     u_mean: float = 0.0
     u_std: float = 1.0
-    u_uclip: float = np.inf
 
 
 class LambertWPreprocessor:
@@ -141,7 +140,6 @@ class LambertWPreprocessor:
             st.delta_hat = delta_hat
             st.u_mean = float(np.mean(u))
             st.u_std = float(np.std(u) + 1e-12)
-            st.u_uclip = float(np.quantile(np.abs(u), self.cfg.scale_q) + 1e-12)
 
         self.state = st
         return self
@@ -199,5 +197,4 @@ class LambertWPreprocessor:
             "delta_hat": st.delta_hat,
             "u_mean": st.u_mean,
             "u_std": st.u_std,
-            "u_uclip": st.u_uclip,
         }
