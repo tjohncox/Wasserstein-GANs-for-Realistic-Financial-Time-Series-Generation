@@ -19,7 +19,6 @@ class PreprocessConfig:
     """Configuration for preprocessing."""
     use_lambert: bool = True
     renorm_after_lambert: bool = True
-    scale_q: float = 0.999
 
 
 @dataclass
