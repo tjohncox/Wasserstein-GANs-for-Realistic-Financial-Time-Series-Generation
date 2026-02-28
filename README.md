@@ -66,7 +66,6 @@ git clone https://gitlab.ub.uni-giessen.de/J_Y5D5E8V/wasserstein-gans-for-realis
 cd quantgan
 
 # Create and activate virtual environment (venv)
-
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
