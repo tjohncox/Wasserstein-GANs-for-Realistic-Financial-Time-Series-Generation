@@ -42,12 +42,7 @@ cd quantgan
 
 # Create and activate virtual environment (venv)
 python3 -m venv .venv
-
-# Linux/macOS
 source .venv/bin/activate
-
-# Windows (PowerShell)
-# .\.venv\Scripts\Activate.ps1
 
 # Update pip and install package
 python -m pip install -U pip
