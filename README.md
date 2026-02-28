@@ -60,17 +60,24 @@ python -m ipykernel install --user --name quantgan --display-name "quantgan (ven
 git clone https://gitlab.ub.uni-giessen.de/J_Y5D5E8V/wasserstein-gans-for-realistic-financial-time-series-generation.git quantgan
 cd quantgan
 
-# Create and activate virtual environment (venv)
+# Create the virtual environment (venv)
 py -m venv .venv
+
+# Upgrade pip and install the project in editable mode
+.\.venv\Scripts\python.exe -m pip install -U pip
+.\.venv\Scripts\python.exe -m pip install -e .
+
+# Install Jupyter + ipykernel inside the venv
+.\.venv\Scripts\python.exe -m pip install -U ipykernel jupyterlab
+
+# Register the venv as a Jupyter kernel
+.\.venv\Scripts\python.exe -m ipykernel install --user --name quantgan --display-name "quantgan (venv)"
+
+# (Optional) Activate the venv for convenience (so you can use `python`/`pip` directly)
 .\.venv\Scripts\Activate.ps1
 
-# Update pip and install package
-py -m pip install -U pip
-pip install -e .
-
-# Install Jupyter (for notebooks)
-pip install -U ipykernel jupyterlab
-py -m ipykernel install --user --name quantgan --display-name "quantgan (venv)"
+# Start JupyterLab using the venv Python (recommended)
+python -m jupyterlab
 
 ```
 
