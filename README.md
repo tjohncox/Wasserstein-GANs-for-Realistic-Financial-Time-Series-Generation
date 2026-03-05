@@ -1,5 +1,3 @@
-<img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/f42a09d9-5146-4ebd-9808-0ac638ad2505" /># Wasserstein GANs for Realistic Financial Time-Series Generation
-
 A modular Python package for generating realistic financial time series using Generative Adversarial Networks. The architecture is based on the **QuantGAN** framework by [Wiese et al. (2020)](#citation), implemented with **WGAN-GP** ([Gulrajani et al., 2017](#citation)) on top of **Wasserstein GAN** ([Arjovsky et al., 2017](#citation)).
 
 ## About
