@@ -16,11 +16,11 @@ This package provides a production-ready implementation of temporal convolutiona
   - **Pure TCN**: Direct noise-to-returns mapping via temporal convolutions
   - **Stochastic Volatility Neural Network**: Models returns as r_t = σ_t × ε_t + μ_t, where σ_t (volatility) and μ_t (drift) are predicted by a TCN based on past latent variables; ε_t is i.i.d. noise (innovation/shock term).
 
-- **Heavy-Tailed Distribution Handling**: Lambert-W transformation for fat-tailed financial returns
+- **Heavy-Tailed Distribution Handling**: Lambert-W transformation for fat-tailed financial returns.
 
-- **WGAN-GP Training**: Improved stability with gradient penalty
+- **WGAN-GP Training**: Improved stability with gradient penalty.
 
-- **Comprehensive Metrics**: ACF, leverage correlation, and distribution distance (DY)
+- **Comprehensive Metrics**: ACF, leverage correlation, and distribution distance (DY).
 
 <img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/99490bf9-92d5-400b-b96e-db3d49b01104" />
 
