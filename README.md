@@ -4,7 +4,7 @@ A modular Python package for generating realistic financial time series using Ge
 
 ## About
 
-This package provides a production-ready implementation of temporal convolutional network (TCN) based generators for financial time series, with specialized preprocessing for heavy-tailed distributions and comprehensive evaluation metrics from the original paper.
+This package provides an implementation of temporal convolutional network (TCN) based generators for financial time series, with specialized preprocessing for heavy-tailed distributions and comprehensive evaluation metrics from the original paper.
 
 
 ### Key Features
